@@ -3,12 +3,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {Splash, Home} from '../screens';
+import {NAVIGATION_FADE} from '../constants';
 
 const stack = createStackNavigator();
 const {Screen, Navigator} = stack;
 
 const config = {
-  duration: 10,
+  duration: NAVIGATION_FADE,
 };
 
 export const Navigation = () => (

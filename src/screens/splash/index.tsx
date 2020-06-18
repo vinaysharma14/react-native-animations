@@ -10,7 +10,7 @@ import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 
 export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
-  const [translateY] = useState(new Animated.Value(1));
+  const [translateY] = useState(new Animated.Value(0));
   const {top: marginTop, bottom: marginBottom} = useSafeArea();
 
   useEffect(() => {

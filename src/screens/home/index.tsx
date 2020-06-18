@@ -1,27 +1,14 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Image, Dimensions} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
-import {Header} from '../../components';
-import {IMAGE_HEIGHT} from '../../constants';
-
-import {splashScreenImages} from '../..//assets/images';
+import {Header, BlurImage} from '../../components';
 
 export const Home = () => {
   return (
     <SafeAreaView>
       <Header />
 
-      <Image source={splashScreenImages[0]} style={styles.splashImage} />
+      <BlurImage />
     </SafeAreaView>
   );
 };
-
-const {width} = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-  splashImage: {
-    width,
-    alignSelf: 'center',
-    height: IMAGE_HEIGHT,
-  },
-});
