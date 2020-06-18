@@ -8,6 +8,9 @@ export const commonStyles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    left: 0,
+    right: 0,
+    position: 'absolute',
     height: HEADER_HEIGHT,
     justifyContent: 'center',
   },

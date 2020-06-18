@@ -38,7 +38,7 @@ export const Splash = () => {
       ]}
       onLayout={({nativeEvent}) => {
         const {height} = nativeEvent.layout;
-        !toValue && setToValue(-((height - HEADER_HEIGHT - IMAGE_HEIGHT) / 2));
+        !toValue && setToValue(-((height - IMAGE_HEIGHT) / 2 - HEADER_HEIGHT));
       }}>
       <Animated.View
         style={[
