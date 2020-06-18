@@ -6,7 +6,11 @@ import {Header, BlurImage, Buttons} from '../../components';
 import {commonStyles} from '../../assets/styles';
 
 export const Home = () => {
-  const {top: paddingTop, bottom: paddingBottom} = useSafeArea();
+  let {top: paddingTop, bottom: paddingBottom} = useSafeArea();
+
+  if (paddingTop === 44) {
+    paddingTop -= 12;
+  }
 
   return (
     <View

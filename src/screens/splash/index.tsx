@@ -11,7 +11,11 @@ import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
   const [translateY] = useState(new Animated.Value(0));
-  const {top: paddingTop, bottom: paddingBottom} = useSafeArea();
+  let {top: paddingTop, bottom: paddingBottom} = useSafeArea();
+
+  if (paddingTop === 44) {
+    paddingTop -= 12;
+  }
 
   useEffect(() => {
     // * un-comment to simulate a busy app
