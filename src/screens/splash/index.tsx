@@ -11,7 +11,7 @@ import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
   const [translateY] = useState(new Animated.Value(0));
-  const {top: marginTop, bottom: marginBottom} = useSafeArea();
+  const {top: paddingTop, bottom: paddingBottom} = useSafeArea();
 
   useEffect(() => {
     // * un-comment to simulate a busy app
@@ -34,17 +34,22 @@ export const Splash: React.FC<any> = ({navigation}) => {
     <View
       style={[
         commonStyles.flex,
-        Platform.OS === 'ios' && {marginTop, marginBottom},
+        commonStyles.bgWhite,
+        Platform.OS === 'ios' && {paddingTop, paddingBottom},
       ]}
       onLayout={({nativeEvent}) => {
         const {height} = nativeEvent.layout;
-        !toValue && setToValue(-((height - IMAGE_HEIGHT) / 2 - HEADER_HEIGHT));
+        !toValue &&
+          setToValue(
+            -((height - IMAGE_HEIGHT) / 2 - HEADER_HEIGHT - paddingTop),
+          );
       }}>
       <Animated.View
         style={[
           commonStyles.header,
           commonStyles.contentCenter,
           commonStyles.itemsCenter,
+          Platform.OS === 'ios' && {top: paddingTop},
         ]}>
         <Text style={commonStyles.headerText}>APP NAME</Text>
       </Animated.View>
