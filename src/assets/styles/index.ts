@@ -1,6 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { HEADER_HEIGHT } from '../../constants';
 
+import { FONT_FAMILY } from '../fonts';
+
 const { height } = Dimensions.get('window');
 
 export const commonStyles = StyleSheet.create({
@@ -21,6 +23,7 @@ export const commonStyles = StyleSheet.create({
   },
   headerText: {
     fontSize: height * 0.025,
+    fontFamily: FONT_FAMILY.MontserratRegular,
   },
   itemsCenter: {
     alignItems: 'center',
@@ -30,5 +33,8 @@ export const commonStyles = StyleSheet.create({
   },
   bgWhite: {
     backgroundColor: 'white',
+  },
+  MontserratRegular: {
+    fontFamily: FONT_FAMILY.MontserratRegular,
   },
 });

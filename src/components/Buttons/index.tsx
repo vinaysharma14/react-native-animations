@@ -79,6 +79,7 @@ export const Buttons = () => {
                 <Text
                   style={[
                     styles.buttonText,
+                    commonStyles.MontserratRegular,
                     colIndex ? styles.leftPadding : {},
                   ]}>
                   {col}
