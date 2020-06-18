@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Animated, StyleSheet, Dimensions} from 'react-native';
+import {View, Animated, StyleSheet, Dimensions, Platform} from 'react-native';
 
 import {IMAGE_HEIGHT, NAVIGATION_FADE} from '../../constants';
 
@@ -20,7 +20,7 @@ export const BlurImage = () => {
       Animated.delay(NAVIGATION_FADE),
       Animated.parallel([
         Animated.timing(blur, {
-          toValue: 10,
+          toValue: Platform.OS === 'ios' ? 10 : 2.5,
           useNativeDriver: false,
         }),
         Animated.timing(opacity, {

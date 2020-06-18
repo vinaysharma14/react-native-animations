@@ -45,7 +45,11 @@ export const Splash: React.FC<any> = ({navigation}) => {
         const {height} = nativeEvent.layout;
         !toValue &&
           setToValue(
-            -((height - IMAGE_HEIGHT) / 2 - HEADER_HEIGHT - paddingTop),
+            -(
+              (height - IMAGE_HEIGHT) / 2 -
+              HEADER_HEIGHT -
+              (Platform.OS === 'ios' ? paddingTop : 0)
+            ),
           );
       }}>
       <Animated.View
