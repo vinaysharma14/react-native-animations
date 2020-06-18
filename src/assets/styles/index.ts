@@ -10,6 +10,9 @@ export const commonStyles = StyleSheet.create({
   flexRow: {
     flexDirection: 'row',
   },
+  z1: {
+    zIndex: 1,
+  },
   header: {
     left: 0,
     right: 0,

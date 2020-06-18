@@ -3,6 +3,7 @@ import {View, Animated, StyleSheet, Dimensions} from 'react-native';
 
 import {IMAGE_HEIGHT, NAVIGATION_FADE} from '../../constants';
 
+import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
 
 export const BlurImage = () => {
@@ -43,7 +44,7 @@ export const BlurImage = () => {
   }, [blur, opacity, overlayOpacity, translateXLeft, translateXRight]);
 
   return (
-    <>
+    <View style={[commonStyles.z1]}>
       <Animated.View style={[styles.border, {opacity}]} />
 
       <View>
@@ -83,7 +84,7 @@ export const BlurImage = () => {
       </View>
 
       <Animated.View style={[styles.border, {opacity}]} />
-    </>
+    </View>
   );
 };
 

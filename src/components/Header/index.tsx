@@ -6,7 +6,13 @@ import {HEADER_HEIGHT} from '../../constants';
 
 export const Header = () => {
   return (
-    <View style={[styles.header, commonStyles.itemsCenter]}>
+    <View
+      style={[
+        styles.header,
+        commonStyles.z1,
+        commonStyles.bgWhite,
+        commonStyles.itemsCenter,
+      ]}>
       <Text style={commonStyles.headerText}>APP NAME</Text>
       <Text style={commonStyles.headerText}>About Us</Text>
     </View>
