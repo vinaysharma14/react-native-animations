@@ -7,6 +7,9 @@ export const commonStyles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  flexRow: {
+    flexDirection: 'row',
+  },
   header: {
     left: 0,
     right: 0,
@@ -21,5 +24,8 @@ export const commonStyles = StyleSheet.create({
   },
   contentCenter: {
     justifyContent: 'center',
+  },
+  bgWhite: {
+    backgroundColor: 'white',
   },
 });
