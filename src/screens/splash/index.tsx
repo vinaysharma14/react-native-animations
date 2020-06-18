@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
-import {View, Animated, Platform, Text} from 'react-native';
+import {View, Animated, Platform, Text, StyleSheet} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {styles} from '../../assets/styles';
+import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
+
+import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 
 export const Splash = () => {
   const [toValue, setToValue] = useState(0);
@@ -30,28 +32,41 @@ export const Splash = () => {
 
   return (
     <View
-      style={[styles.flex, Platform.OS === 'ios' && {marginTop, marginBottom}]}>
+      style={[
+        commonStyles.flex,
+        Platform.OS === 'ios' && {marginTop, marginBottom},
+      ]}
+      onLayout={({nativeEvent}) => {
+        const {height} = nativeEvent.layout;
+        !toValue && setToValue(-((height - HEADER_HEIGHT - IMAGE_HEIGHT) / 2));
+      }}>
       <Animated.View
-        style={[styles.header, styles.contentCenter, styles.itemsCenter]}>
-        <Text style={styles.headerText}>APP NAME</Text>
+        style={[
+          commonStyles.header,
+          commonStyles.contentCenter,
+          commonStyles.itemsCenter,
+        ]}>
+        <Text style={commonStyles.headerText}>APP NAME</Text>
       </Animated.View>
 
-      <View style={[styles.flex, styles.itemsCenter]}>
-        <Animated.View style={[styles.flex]} />
-
+      <View
+        style={[
+          commonStyles.flex,
+          commonStyles.itemsCenter,
+          commonStyles.contentCenter,
+        ]}>
         <Animated.Image
           source={splashScreenImages[0]}
           style={[styles.splashImage, {transform: [{translateY}]}]}
-        />
-
-        <View
-          style={styles.flex}
-          onLayout={({nativeEvent}) => {
-            const {height} = nativeEvent.layout;
-            !toValue && setToValue(-height);
-          }}
         />
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  splashImage: {
+    aspectRatio: 1,
+    height: IMAGE_HEIGHT,
+  },
+});

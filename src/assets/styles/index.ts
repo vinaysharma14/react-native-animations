@@ -1,13 +1,14 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { HEADER_HEIGHT } from '../../constants';
 
-const { height, width } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 
-export const styles = StyleSheet.create({
+export const commonStyles = StyleSheet.create({
   flex: {
     flex: 1,
   },
   header: {
-    height: height * 0.05,
+    height: HEADER_HEIGHT,
     justifyContent: 'center',
   },
   headerText: {
@@ -18,9 +19,5 @@ export const styles = StyleSheet.create({
   },
   contentCenter: {
     justifyContent: 'center',
-  },
-  splashImage: {
-    width: width * 0.7,
-    height: width * 0.7,
   },
 });
