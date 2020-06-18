@@ -8,7 +8,7 @@ import {splashScreenImages} from '../../assets/images';
 
 import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 
-export const Splash = () => {
+export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
   const [translateY] = useState(new Animated.Value(1));
   const {top: marginTop, bottom: marginBottom} = useSafeArea();
@@ -26,9 +26,9 @@ export const Splash = () => {
         toValue,
         delay: 1000,
         useNativeDriver: true,
-      }).start();
+      }).start(() => navigation.push('Home'));
     }
-  }, [translateY, toValue]);
+  }, [translateY, toValue, navigation]);
 
   return (
     <View

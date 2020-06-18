@@ -12,7 +12,6 @@ export const commonStyles = StyleSheet.create({
     right: 0,
     position: 'absolute',
     height: HEADER_HEIGHT,
-    justifyContent: 'center',
   },
   headerText: {
     fontSize: height * 0.025,
