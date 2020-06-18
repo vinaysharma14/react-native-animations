@@ -5,7 +5,8 @@ import {useSafeArea} from 'react-native-safe-area-context';
 import {Header, BlurImage, Buttons} from '../../components';
 import {commonStyles} from '../../assets/styles';
 
-export const Home = () => {
+export const Home: React.FC<any> = ({route}) => {
+  const {splashImage} = route.params;
   let {top: paddingTop, bottom: paddingBottom} = useSafeArea();
 
   if (paddingTop === 44) {
@@ -21,7 +22,7 @@ export const Home = () => {
       ]}>
       <Header />
 
-      <BlurImage />
+      <BlurImage splashImage={splashImage} />
 
       <Buttons />
     </View>

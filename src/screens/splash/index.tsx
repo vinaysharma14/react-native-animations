@@ -10,6 +10,7 @@ import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 
 export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
+  const [splashImage, setSplashImage] = useState(-1);
   const [translateY] = useState(new Animated.Value(0));
   let {top: paddingTop, bottom: paddingBottom} = useSafeArea();
 
@@ -22,6 +23,9 @@ export const Splash: React.FC<any> = ({navigation}) => {
     // setInterval(() => {
     //   for (var i = 0; i < 5e8; i++) {}
     // }, 1000);
+    setSplashImage(
+      Math.floor(Math.random() * Math.floor(splashScreenImages.length)),
+    );
   }, []);
 
   useEffect(() => {
@@ -30,9 +34,9 @@ export const Splash: React.FC<any> = ({navigation}) => {
         toValue,
         delay: 1000,
         useNativeDriver: true,
-      }).start(() => navigation.push('Home'));
+      }).start(() => navigation.replace('Home', {splashImage}));
     }
-  }, [translateY, toValue, navigation]);
+  }, [translateY, toValue, navigation, splashImage]);
 
   return (
     <View
@@ -69,7 +73,7 @@ export const Splash: React.FC<any> = ({navigation}) => {
           commonStyles.contentCenter,
         ]}>
         <Animated.Image
-          source={splashScreenImages[0]}
+          source={splashScreenImages[splashImage]}
           style={[styles.splashImage, {transform: [{translateY}]}]}
         />
       </View>

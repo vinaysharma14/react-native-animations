@@ -6,7 +6,11 @@ import {IMAGE_HEIGHT, NAVIGATION_FADE} from '../../constants';
 import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
 
-export const BlurImage = () => {
+interface Props {
+  splashImage: number;
+}
+
+export const BlurImage: React.FC<Props> = ({splashImage}) => {
   const [blur] = useState(new Animated.Value(0));
   const [opacity] = useState(new Animated.Value(0));
   const [overlayOpacity] = useState(new Animated.Value(0));
@@ -51,7 +55,7 @@ export const BlurImage = () => {
         <Animated.Image
           blurRadius={blur}
           style={styles.splashImage}
-          source={splashScreenImages[0]}
+          source={splashScreenImages[splashImage]}
         />
 
         <Animated.View
