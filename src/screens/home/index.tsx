@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Platform} from 'react-native';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-import {Header, BlurImage, Buttons} from '../../components';
+import {Header, BlurImage, Buttons, Footer} from '../../components';
 import {commonStyles} from '../../assets/styles';
 
 export const Home: React.FC<any> = ({route}) => {
@@ -25,6 +25,8 @@ export const Home: React.FC<any> = ({route}) => {
       <BlurImage splashImage={splashImage} />
 
       <Buttons />
+
+      <Footer />
     </View>
   );
 };
