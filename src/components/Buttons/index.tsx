@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
+  Image,
   Animated,
   StyleSheet,
   Dimensions,
@@ -72,17 +73,27 @@ export const Buttons = () => {
           <View
             key={rowIndex}
             style={[commonStyles.flex, commonStyles.flexRow]}>
-            {row.map((col, colIndex) => (
+            {row.map(({text, image}, colIndex) => (
               <TouchableOpacity
                 key={colIndex}
                 style={[commonStyles.flex, commonStyles.contentCenter]}>
+                <Image
+                  source={image}
+                  resizeMode="contain"
+                  style={[
+                    styles.image,
+                    !rowIndex && colIndex ? styles.stackOverflow : {},
+                    rowIndex && colIndex ? styles.youTube : {},
+                  ]}
+                />
+
                 <Text
                   style={[
                     styles.buttonText,
                     commonStyles.MontserratRegular,
                     colIndex ? styles.leftPadding : {},
                   ]}>
-                  {col}
+                  {text}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -105,6 +116,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
   },
   buttonText: {
+    marginTop: 15,
     fontSize: height * 0.02,
   },
   absoluteBorder: {
@@ -118,5 +130,17 @@ const styles = StyleSheet.create({
   verticalBorder: {
     height: '100%',
     borderLeftWidth: 1,
+  },
+  image: {
+    width: height * 0.05,
+    height: height * 0.05,
+  },
+  stackOverflow: {
+    height: height * 0.045,
+    width: height * 0.08,
+  },
+  youTube: {
+    height: height * 0.045,
+    width: height * 0.09,
   },
 });
