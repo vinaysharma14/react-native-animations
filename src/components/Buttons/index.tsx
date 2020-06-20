@@ -18,6 +18,7 @@ const {width} = Dimensions.get('window');
 
 export const Buttons = () => {
   const [show, setShow] = useState(false);
+  const [opacity] = useState(new Animated.Value(0));
   const [translateY] = useState(new Animated.Value(0));
   const [translateX] = useState(new Animated.Value(-width + 15));
 
@@ -26,6 +27,10 @@ export const Buttons = () => {
       Animated.sequence([
         Animated.delay(300),
         Animated.parallel([
+          Animated.timing(opacity, {
+            toValue: 1,
+            useNativeDriver: true,
+          }),
           Animated.timing(translateY, {
             toValue: 0,
             useNativeDriver: true,
@@ -37,7 +42,7 @@ export const Buttons = () => {
         ]),
       ]).start();
     }
-  }, [show, translateY, translateX]);
+  }, [show, opacity, translateY, translateX]);
 
   return (
     <View
@@ -70,9 +75,9 @@ export const Buttons = () => {
         )}
 
         {BUTTONS.map((row, rowIndex) => (
-          <View
+          <Animated.View
             key={rowIndex}
-            style={[commonStyles.flex, commonStyles.flexRow]}>
+            style={[commonStyles.flex, commonStyles.flexRow, {opacity}]}>
             {row.map(({text, image}, colIndex) => (
               <TouchableOpacity
                 key={colIndex}
@@ -97,7 +102,7 @@ export const Buttons = () => {
                 </Text>
               </TouchableOpacity>
             ))}
-          </View>
+          </Animated.View>
         ))}
       </View>
 
