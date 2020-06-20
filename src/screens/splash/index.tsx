@@ -6,12 +6,17 @@ import {useSafeArea} from 'react-native-safe-area-context';
 import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
 
+import {Header} from '../../components';
+
 import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
 
 export const Splash: React.FC<any> = ({navigation}) => {
   const [toValue, setToValue] = useState(0);
   const [splashImage, setSplashImage] = useState(-1);
+
+  const [opacity] = useState(new Animated.Value(0));
   const [translateY] = useState(new Animated.Value(0));
+
   let {top: paddingTop, bottom: paddingBottom} = useSafeArea();
 
   if (paddingTop === 44) {
@@ -30,13 +35,20 @@ export const Splash: React.FC<any> = ({navigation}) => {
 
   useEffect(() => {
     if (toValue) {
-      Animated.timing(translateY, {
-        toValue,
-        delay: 1000,
-        useNativeDriver: true,
-      }).start(() => navigation.replace('Home', {splashImage}));
+      Animated.parallel([
+        Animated.timing(opacity, {
+          toValue: 1,
+          delay: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(translateY, {
+          toValue,
+          delay: 1000,
+          useNativeDriver: true,
+        }),
+      ]).start(() => navigation.replace('Home', {splashImage}));
     }
-  }, [translateY, toValue, navigation, splashImage]);
+  }, [opacity, translateY, toValue, navigation, splashImage]);
 
   return (
     <View
@@ -63,7 +75,17 @@ export const Splash: React.FC<any> = ({navigation}) => {
           commonStyles.itemsCenter,
           Platform.OS === 'ios' && {top: paddingTop},
         ]}>
-        <Text style={commonStyles.headerText}>APP NAME</Text>
+        <Text style={commonStyles.headerText}>Shared Element Transition</Text>
+      </Animated.View>
+
+      <Animated.View
+        style={[
+          {opacity},
+          commonStyles.header,
+          commonStyles.contentCenter,
+          Platform.OS === 'ios' && {top: paddingTop},
+        ]}>
+        <Header />
       </Animated.View>
 
       <View
