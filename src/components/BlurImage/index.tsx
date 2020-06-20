@@ -11,7 +11,6 @@ interface Props {
 }
 
 export const BlurImage: React.FC<Props> = ({splashImage}) => {
-  const [blur] = useState(new Animated.Value(0));
   const [opacity] = useState(new Animated.Value(0));
   const [overlayOpacity] = useState(new Animated.Value(0));
   const [translateXLeft] = useState(new Animated.Value(0));
@@ -23,10 +22,6 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
     Animated.sequence([
       Animated.delay(NAVIGATION_FADE),
       Animated.parallel([
-        Animated.timing(blur, {
-          toValue: Platform.OS === 'ios' ? 10 : 2.5,
-          useNativeDriver: false,
-        }),
         Animated.timing(opacity, {
           toValue: 1,
           useNativeDriver: true,
@@ -45,17 +40,22 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
         }),
       ]),
     ]).start(() => setShowAbsolute(false));
-  }, [blur, opacity, overlayOpacity, translateXLeft, translateXRight]);
+  }, [opacity, overlayOpacity, translateXLeft, translateXRight]);
 
   return (
-    <View style={[commonStyles.z1]}>
+    <View style={[commonStyles.z1, commonStyles.bgWhite]}>
       <Animated.View style={[styles.border, {opacity}]} />
 
       <View>
         <Animated.Image
-          blurRadius={blur}
-          style={styles.splashImage}
+          style={[styles.splashImage]}
           source={splashScreenImages[splashImage]}
+        />
+
+        <Animated.Image
+          source={splashScreenImages[splashImage]}
+          blurRadius={Platform.OS === 'ios' ? 10 : 2.5}
+          style={[styles.splashImage, StyleSheet.absoluteFill, {opacity}]}
         />
 
         <Animated.View
