@@ -74,7 +74,7 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
 
         <Animated.Image
           source={splashScreenImages[splashImage]}
-          blurRadius={Platform.OS === 'ios' ? 10 : 2.5}
+          blurRadius={Platform.OS === 'ios' ? 10 : 2}
           style={[styles.splashImage, StyleSheet.absoluteFill, {opacity}]}
         />
 
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: height * 0.035,
-    fontFamily: FONT_FAMILY.MontserratExtraLight,
+    fontFamily: FONT_FAMILY.MontserratLight,
   },
   getInTouchContainer: {
     borderTopWidth: 1,
