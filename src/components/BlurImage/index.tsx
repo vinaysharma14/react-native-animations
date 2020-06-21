@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Animated, StyleSheet, Dimensions, Platform} from 'react-native';
+import {
+  Text,
+  View,
+  Animated,
+  StyleSheet,
+  Dimensions,
+  Platform,
+} from 'react-native';
 
 import {
   IMAGE_HEIGHT,
@@ -79,11 +86,19 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
           ]}
         />
 
-        <Animated.Text
-          style={[StyleSheet.absoluteFill, styles.heading, {opacity}]}
+        <Animated.View
+          style={[StyleSheet.absoluteFill, {opacity}, styles.headingContainer]}
         >
-          ALL OF THE{'\n'}ANIMATIONS ARE{'\n'}RUNNING ON{'\n'}NATIVE THREAD!
-        </Animated.Text>
+          <Text style={styles.heading}>
+            ALL OF THE{'\n'}ANIMATIONS ARE{'\n'}RUNNING ON{'\n'}NATIVE THREAD!
+          </Text>
+
+          <View style={[styles.getInTouchContainer]}>
+            <Text style={[commonStyles.MontserratRegular, styles.getInTouch]}>
+              YOU CAN GET IN TOUCH WITH ME BELOW!
+            </Text>
+          </View>
+        </Animated.View>
 
         {showAbsolute && (
           <Animated.View
@@ -138,9 +153,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'white',
   },
-  heading: {
+  headingContainer: {
     padding: 15,
+    justifyContent: 'space-between',
+  },
+  heading: {
     fontSize: height * 0.035,
     fontFamily: FONT_FAMILY.MontserratExtraLight,
+  },
+  getInTouchContainer: {
+    borderTopWidth: 1,
+  },
+  getInTouch: {
+    marginTop: 15,
+    textAlign: 'center',
+    fontSize: height * 0.018,
   },
 });
