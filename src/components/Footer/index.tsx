@@ -24,13 +24,15 @@ export const Footer = () => {
     <View style={styles.container}>
       <Animated.View style={{transform: [{translateY}]}}>
         <Animated.Text
-          style={[commonStyles.MontserratRegular, styles.quote, {opacity}]}>
+          style={[commonStyles.MontserratRegular, styles.quote, {opacity}]}
+        >
           Without requirements or design, programming is the art of adding bugs
           to an empty text file.
         </Animated.Text>
 
         <Animated.Text
-          style={[commonStyles.MontserratRegular, styles.author, {opacity}]}>
+          style={[commonStyles.MontserratRegular, styles.author, {opacity}]}
+        >
           - Louis Srygley
         </Animated.Text>
       </Animated.View>

@@ -36,6 +36,7 @@ export const Navigation = () => (
           },
         }}
       />
+
       <Screen
         name="Home"
         component={Home}

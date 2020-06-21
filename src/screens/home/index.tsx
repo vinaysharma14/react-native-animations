@@ -19,7 +19,8 @@ export const Home: React.FC<any> = ({route}) => {
         commonStyles.flex,
         commonStyles.bgWhite,
         Platform.OS === 'ios' && {paddingTop, paddingBottom},
-      ]}>
+      ]}
+    >
       <Header />
 
       <BlurImage splashImage={splashImage} />

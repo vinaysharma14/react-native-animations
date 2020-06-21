@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Image,
+  Linking,
   Animated,
   StyleSheet,
   Dimensions,
@@ -52,7 +53,8 @@ export const Buttons = () => {
 
         !show && translateY.setValue(-height);
         !show && setShow(true);
-      }}>
+      }}
+    >
       <Animated.View
         style={[
           styles.absoluteBorder,
@@ -77,11 +79,14 @@ export const Buttons = () => {
         {BUTTONS.map((row, rowIndex) => (
           <Animated.View
             key={rowIndex}
-            style={[commonStyles.flex, commonStyles.flexRow, {opacity}]}>
-            {row.map(({text, image}, colIndex) => (
+            style={[commonStyles.flex, commonStyles.flexRow, {opacity}]}
+          >
+            {row.map(({text, image, url}, colIndex) => (
               <TouchableOpacity
                 key={colIndex}
-                style={[commonStyles.flex, commonStyles.contentCenter]}>
+                style={[commonStyles.flex, commonStyles.contentCenter]}
+                onPress={() => Linking.openURL(url)}
+              >
                 <Image
                   source={image}
                   resizeMode="contain"
@@ -97,7 +102,8 @@ export const Buttons = () => {
                     styles.buttonText,
                     commonStyles.MontserratRegular,
                     colIndex ? styles.leftPadding : {},
-                  ]}>
+                  ]}
+                >
                   {text}
                 </Text>
               </TouchableOpacity>

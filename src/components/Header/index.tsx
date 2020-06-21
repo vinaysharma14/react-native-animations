@@ -12,7 +12,8 @@ export const Header = () => {
         commonStyles.z1,
         commonStyles.bgWhite,
         commonStyles.itemsCenter,
-      ]}>
+      ]}
+    >
       <Text style={commonStyles.headerText}>APP NAME</Text>
       <Text style={commonStyles.headerText}>About Us</Text>
     </View>

@@ -67,14 +67,16 @@ export const Splash: React.FC<any> = ({navigation}) => {
               (Platform.OS === 'ios' ? paddingTop : 0)
             ),
           );
-      }}>
+      }}
+    >
       <Animated.View
         style={[
           commonStyles.header,
           commonStyles.contentCenter,
           commonStyles.itemsCenter,
           Platform.OS === 'ios' && {top: paddingTop},
-        ]}>
+        ]}
+      >
         <Text style={commonStyles.headerText}>Shared Element Transition</Text>
       </Animated.View>
 
@@ -84,7 +86,8 @@ export const Splash: React.FC<any> = ({navigation}) => {
           commonStyles.header,
           commonStyles.contentCenter,
           Platform.OS === 'ios' && {top: paddingTop},
-        ]}>
+        ]}
+      >
         <Header />
       </Animated.View>
 
@@ -93,7 +96,8 @@ export const Splash: React.FC<any> = ({navigation}) => {
           commonStyles.flex,
           commonStyles.itemsCenter,
           commonStyles.contentCenter,
-        ]}>
+        ]}
+      >
         <Animated.Image
           source={splashScreenImages[splashImage]}
           style={[styles.splashImage, {transform: [{translateY}]}]}
