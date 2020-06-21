@@ -8,6 +8,8 @@ import youtube from './youtube.png';
 import linkedIn from './linked-in.png';
 import stackOverflow from './stack-overflow.png';
 
+import reactNativeImage from './react-native.png';
+
 export const splashScreenImages = [
   splashImage01,
   splashImage02,
@@ -16,3 +18,5 @@ export const splashScreenImages = [
 ];
 
 export const socialMedia = [github, stackOverflow, linkedIn, youtube];
+
+export const reactNative = reactNativeImage;
