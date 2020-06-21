@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {BUTTONS} from '../../constants';
+import {BUTTONS, ANIMATION_DURATION, USE_NATIVE_DRIVER} from '../../constants';
 
 import {commonStyles} from '../../assets/styles';
 
@@ -25,20 +25,27 @@ export const Buttons = () => {
 
   useEffect(() => {
     if (show) {
+      const duration = ANIMATION_DURATION;
+      const useNativeDriver = USE_NATIVE_DRIVER;
+
       Animated.sequence([
         Animated.delay(300),
         Animated.parallel([
           Animated.timing(opacity, {
+            duration,
             toValue: 1,
-            useNativeDriver: true,
+            delay: 250,
+            useNativeDriver,
           }),
           Animated.timing(translateY, {
+            duration,
             toValue: 0,
-            useNativeDriver: true,
+            useNativeDriver,
           }),
           Animated.timing(translateX, {
+            duration,
             toValue: 0,
-            useNativeDriver: true,
+            useNativeDriver,
           }),
         ]),
       ]).start();

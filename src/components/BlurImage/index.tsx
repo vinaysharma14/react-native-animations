@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {View, Animated, StyleSheet, Dimensions, Platform} from 'react-native';
 
-import {IMAGE_HEIGHT, NAVIGATION_FADE} from '../../constants';
+import {
+  IMAGE_HEIGHT,
+  NAVIGATION_FADE,
+  USE_NATIVE_DRIVER,
+  ANIMATION_DURATION,
+} from '../../constants';
 
 import {FONT_FAMILY} from '../../assets/fonts';
 import {commonStyles} from '../../assets/styles';
@@ -20,24 +25,31 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
   const [showAbsolute, setShowAbsolute] = useState(true);
 
   useEffect(() => {
+    const duration = ANIMATION_DURATION;
+    const useNativeDriver = USE_NATIVE_DRIVER;
+
     Animated.sequence([
       Animated.delay(NAVIGATION_FADE),
       Animated.parallel([
         Animated.timing(opacity, {
+          duration,
           toValue: 1,
-          useNativeDriver: true,
+          useNativeDriver,
         }),
         Animated.timing(overlayOpacity, {
+          duration,
           toValue: 0.2,
-          useNativeDriver: true,
+          useNativeDriver,
         }),
         Animated.timing(translateXLeft, {
+          duration,
           toValue: -(width * 0.15),
-          useNativeDriver: true,
+          useNativeDriver,
         }),
         Animated.timing(translateXRight, {
+          duration,
           toValue: width * 0.15,
-          useNativeDriver: true,
+          useNativeDriver,
         }),
       ]),
     ]).start(() => setShowAbsolute(false));

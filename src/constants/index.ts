@@ -7,6 +7,8 @@ export const HEADER_HEIGHT = height * 0.06;
 export const IMAGE_HEIGHT = width * 0.7;
 
 export const NAVIGATION_FADE = 50;
+export const USE_NATIVE_DRIVER = true;
+export const ANIMATION_DURATION = 500;
 
 export const BUTTONS = [
   [

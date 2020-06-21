@@ -2,20 +2,26 @@ import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Dimensions, Animated} from 'react-native';
 
 import {commonStyles} from '../../assets/styles';
+import {ANIMATION_DURATION, USE_NATIVE_DRIVER} from '../../constants';
 
 export const Footer = () => {
   const [opacity] = useState(new Animated.Value(0));
   const [translateY] = useState(new Animated.Value(30));
 
   useEffect(() => {
+    const duration = ANIMATION_DURATION;
+    const useNativeDriver = USE_NATIVE_DRIVER;
+
     Animated.parallel([
       Animated.timing(opacity, {
+        duration,
         toValue: 1,
-        useNativeDriver: true,
+        useNativeDriver,
       }),
       Animated.timing(translateY, {
+        duration,
         toValue: 0,
-        useNativeDriver: true,
+        useNativeDriver,
       }),
     ]).start();
   }, [opacity, translateY]);

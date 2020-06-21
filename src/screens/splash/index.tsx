@@ -6,6 +6,8 @@ import {useSafeArea} from 'react-native-safe-area-context';
 import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
 
+import {ANIMATION_DURATION, USE_NATIVE_DRIVER} from '../../constants';
+
 import {Header} from '../../components';
 
 import {HEADER_HEIGHT, IMAGE_HEIGHT} from '../../constants';
@@ -35,16 +37,21 @@ export const Splash: React.FC<any> = ({navigation}) => {
 
   useEffect(() => {
     if (toValue) {
+      const duration = ANIMATION_DURATION;
+      const useNativeDriver = USE_NATIVE_DRIVER;
+
       Animated.parallel([
         Animated.timing(opacity, {
+          duration,
           toValue: 1,
           delay: 1000,
-          useNativeDriver: true,
+          useNativeDriver,
         }),
         Animated.timing(translateY, {
+          duration,
           toValue,
           delay: 1000,
-          useNativeDriver: true,
+          useNativeDriver,
         }),
       ]).start(() => navigation.replace('Home', {splashImage}));
     }
