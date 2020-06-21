@@ -3,6 +3,7 @@ import {View, Animated, StyleSheet, Dimensions, Platform} from 'react-native';
 
 import {IMAGE_HEIGHT, NAVIGATION_FADE} from '../../constants';
 
+import {FONT_FAMILY} from '../../assets/fonts';
 import {commonStyles} from '../../assets/styles';
 import {splashScreenImages} from '../../assets/images';
 
@@ -66,6 +67,12 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
           ]}
         />
 
+        <Animated.Text
+          style={[StyleSheet.absoluteFill, styles.heading, {opacity}]}
+        >
+          ALL OF THE{'\n'}ANIMATIONS ARE{'\n'}RUNNING ON{'\n'}NATIVE THREAD!
+        </Animated.Text>
+
         {showAbsolute && (
           <Animated.View
             style={[
@@ -92,7 +99,7 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
   );
 };
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   border: {
@@ -118,5 +125,10 @@ const styles = StyleSheet.create({
     width: width * 0.15,
     position: 'absolute',
     backgroundColor: 'white',
+  },
+  heading: {
+    padding: 15,
+    fontSize: height * 0.035,
+    fontFamily: FONT_FAMILY.MontserratExtraLight,
   },
 });
