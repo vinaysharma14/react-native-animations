@@ -1,7 +1,7 @@
-import { Dimensions } from 'react-native';
-import { socialMedia } from '../assets/images';
+import {Dimensions} from 'react-native';
+import {socialMedia} from '../assets/images';
 
-const { height, width } = Dimensions.get('window');
+const {height, width} = Dimensions.get('window');
 
 export const HEADER_HEIGHT = height * 0.06;
 export const IMAGE_HEIGHT = width * 0.7;
@@ -12,11 +12,27 @@ export const ANIMATION_DURATION = 500;
 
 export const BUTTONS = [
   [
-    { text: 'GitHub\nProfile', url: 'https://github.com/vinaysharma14', image: socialMedia[0] },
-    { text: 'Stack\nOverflow', url: 'https://stackoverflow.com/users/11220479/vinay-sharma', image: socialMedia[1] },
+    {
+      image: socialMedia[0],
+      text: 'GitHub\nProfile',
+      url: 'https://github.com/vinaysharma14',
+    },
+    {
+      image: socialMedia[1],
+      text: 'Stack\nOverflow',
+      url: 'https://stackoverflow.com/users/11220479/vinay-sharma',
+    },
   ],
   [
-    { text: 'LinkedIn\nProfile', url: 'https://www.linkedin.com/in/vinaysharma14/', image: socialMedia[2] },
-    { text: 'Tech\nTalks', url: 'https://www.youtube.com/results?search_query=geekyants+vinay', image: socialMedia[3] },
+    {
+      image: socialMedia[2],
+      text: 'LinkedIn\nProfile',
+      url: 'https://www.linkedin.com/in/vinaysharma14/',
+    },
+    {
+      image: socialMedia[3],
+      text: 'Tech\nTalks',
+      url: 'https://www.youtube.com/results?search_query=geekyants+vinay',
+    },
   ],
 ];
