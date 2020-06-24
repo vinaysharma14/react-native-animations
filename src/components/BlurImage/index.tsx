@@ -45,7 +45,7 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
         }),
         Animated.timing(overlayOpacity, {
           duration,
-          toValue: 0.2,
+          toValue: 0.4,
           useNativeDriver,
         }),
         Animated.timing(translateXLeft, {
