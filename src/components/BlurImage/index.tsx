@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {
   Text,
   View,
+  Image,
   Animated,
   StyleSheet,
   Dimensions,
@@ -67,7 +68,7 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
       <Animated.View style={[styles.border, {opacity}]} />
 
       <View>
-        <Animated.Image
+        <Image
           style={[styles.splashImage]}
           source={splashScreenImages[splashImage]}
         />
