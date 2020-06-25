@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {
   Text,
   View,
@@ -14,6 +15,7 @@ import {
   NAVIGATION_FADE,
   USE_NATIVE_DRIVER,
   ANIMATION_DURATION,
+  PSEUDO_IMAGE_BORDER,
 } from '../../constants';
 
 import {FONT_FAMILY} from '../../assets/fonts';
@@ -51,12 +53,12 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
         }),
         Animated.timing(translateXLeft, {
           duration,
-          toValue: -(width * 0.15),
+          toValue: -PSEUDO_IMAGE_BORDER,
           useNativeDriver,
         }),
         Animated.timing(translateXRight, {
           duration,
-          toValue: width * 0.15,
+          toValue: PSEUDO_IMAGE_BORDER,
           useNativeDriver,
         }),
       ]),
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
   absolute: {
     top: 0,
     bottom: 0,
-    width: width * 0.15,
+    width: PSEUDO_IMAGE_BORDER,
     position: 'absolute',
     backgroundColor: 'white',
   },

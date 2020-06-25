@@ -5,6 +5,7 @@ const {height, width} = Dimensions.get('window');
 
 export const HEADER_HEIGHT = height * 0.06;
 export const IMAGE_HEIGHT = width * 0.7;
+export const PSEUDO_IMAGE_BORDER = (width - IMAGE_HEIGHT) / 2;
 
 export const NAVIGATION_FADE = 50;
 export const USE_NATIVE_DRIVER = true;
