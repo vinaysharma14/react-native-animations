@@ -83,8 +83,8 @@ export const BlurImage: React.FC<Props> = ({splashImage}) => {
 
         <Animated.View
           style={[
+            commonStyles.bgWhite,
             StyleSheet.absoluteFill,
-            styles.overlay,
             {opacity: overlayOpacity},
           ]}
         />
@@ -139,9 +139,6 @@ const styles = StyleSheet.create({
     width,
     alignSelf: 'center',
     height: IMAGE_HEIGHT,
-  },
-  overlay: {
-    backgroundColor: 'white',
   },
   leftAbsolute: {
     left: 0,
