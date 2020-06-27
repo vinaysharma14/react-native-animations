@@ -6,11 +6,9 @@ This type of animation is known as **Shared Element Transition**. In this animat
 
 ## Demo
 
-### Animation on iOS
-![](https://media.giphy.com/media/US6psuGQT8T1HNFH5S/giphy.gif)
-
-### Animation on android
-![](https://media.giphy.com/media/mCbezCJIlYPtnktdE1/giphy.gif)
+Animation on iOS            |  Animation on android
+:-------------------------:|:-------------------------:
+![](https://media.giphy.com/media/US6psuGQT8T1HNFH5S/giphy.gif)  |  ![](https://media.giphy.com/media/mCbezCJIlYPtnktdE1/giphy.gif)
 
 This repository you will help in writing butter smooth **60 FPS** complex animations in React Native. All of the animation are running on **native thread** without writing any native code! The project is written in **Typescript**.
 
@@ -24,4 +22,3 @@ git clone https://github.com/vinaysharma14/react-native-animations
 npm install
 npm run ios / npm run android
 ```
-  
